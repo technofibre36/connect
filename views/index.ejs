@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f5f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background: #007bff;
+            padding: 15px 40px;
+            color: white;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo"><strong>MyApp</strong></div>
+        <div>
+            <a href="/">Home</a>
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <h1>Welcome to MyApp</h1>
+        <p>Your simple Node.js authentication system with MongoDB.</p>
+
+        <a class="btn" href="/register">Get Started</a>
+    </div>
+
+</body>
+</html>
