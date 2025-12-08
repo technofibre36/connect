@@ -1,4 +1,4 @@
-A modern authentication system built with Node.js, Express, MongoDB, and Next.js.
+built with Node.js, Express, MongoDB, and Next.js.
 
 ## Architecture
 
@@ -26,53 +26,12 @@ connect-fork/
     └── lib/             # API utilities
 ```
 
-## Prerequisites
-
-- Node.js 18+
-- MongoDB running locally on port 27017
-
-## Setup & Run
-
-### 1. Install Backend Dependencies
-
-```powershell
-cd "c:\Users\uma54\OneDrive\Desktop\cse aiml project\connect-fork"
-npm install
-```
-
-### 2. Install Frontend Dependencies
-
-```powershell
-cd client
-npm install
-cd ..
-```
-
-### 3. Start MongoDB
-
-Make sure MongoDB is running on `mongodb://127.0.0.1:27017`
-
-### 4. Run Both Servers
-
-**Terminal 1 - Backend (Express):**
-```powershell
-node index.js
-```
-Runs on: http://localhost:5000
-
 **Terminal 2 - Frontend (Next.js):**
 ```powershell
 cd client
 npm run dev
 ```
 Runs on: http://localhost:3000
-
-## Usage
-
-1. Open http://localhost:3000 in your browser
-2. Click "Get Started" or "Register" to create an account
-3. After registration, log in with your credentials
-4. Access the protected dashboard
 
 ## API Endpoints
 
@@ -116,7 +75,6 @@ Runs on: http://localhost:3000
 
 ## Production Deployment
 
-1. **Backend:** Deploy to Railway, Render, or Heroku
 2. **Frontend:** Deploy to Vercel
 3. Update CORS origin in `index.js` to your production frontend URL
 4. Set environment variables for MongoDB URI and session secret
