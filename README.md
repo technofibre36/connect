@@ -1,4 +1,4 @@
-A modern authentication system built with Node.js, Express, MongoDB, and Next.js.
+built with Node.js, Express, MongoDB, and Next.js.
 
 ## Architecture
 
