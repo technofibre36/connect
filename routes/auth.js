@@ -13,21 +13,36 @@ function isAuth(req, res, next) {
 // })
 /* ------------------- REGISTER ------------------ */
 router.get("/register", (req, res) => {
-  res.render("register");
+  res.render("register", {});
 });
 
 router.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+  try {
+    // check if user already exists
+    const existing = await User.findOne({ email });
+    if (existing) {
+      return res.status(400).render("register", {
+        error: "Email is already registered",
+        name,
+        email
+      });
+    }
 
-  await User.create({
-    name,
-    email,
-    password: hashedPassword
-  });
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-  res.redirect("/login");
+    await User.create({ name, email, password: hashedPassword });
+
+    res.redirect("/login");
+  } catch (err) {
+    console.error("Register error:", err);
+    res.status(500).render("register", {
+      error: "Something went wrong. Please try again.",
+      name,
+      email
+    });
+  }
 });
 
 /* ------------------- LOGIN ------------------ */
