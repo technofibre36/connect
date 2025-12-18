@@ -18,6 +18,7 @@ router.get("/register", (req, res) => {
 
 router.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
+  console.log("Register body:", req.body);
 
   try {
     // check if user already exists
@@ -77,3 +78,5 @@ router.get("/dashboard", isAuth, async (req, res) => {
 });
 
 module.exports = router;
+
+// Optional: expose discover route via details router if needed

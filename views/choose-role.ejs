@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Choose role</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#071028 0%,#071733 60%);color:#e6eef8;display:flex;align-items:center;justify-content:center;height:100vh}
+    .card{width:760px;background:rgba(255,255,255,0.02);padding:28px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;gap:20px}
+    .option{flex:1;padding:18px;border-radius:10px;background:rgba(255,255,255,0.01);text-align:center}
+    .btn{background:#12b886;color:#042028;padding:10px 14px;border-radius:8px;border:none;cursor:pointer;margin-top:12px}
+    .muted{color:#9aa6bd}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="option">
+      <h3>Continue as Investor</h3>
+      <p class="muted">Find startups, lead syndicates, and invest.</p>
+      <form method="POST" action="/choose-role">
+        <input type="hidden" name="role" value="investor" />
+        <button class="btn" type="submit">I'm an investor</button>
+      </form>
+    </div>
+    <div class="option">
+      <h3>Continue as Startup CEO</h3>
+      <p class="muted">Raise capital, find investors, and grow your company.</p>
+      <form method="POST" action="/choose-role">
+        <input type="hidden" name="role" value="startup" />
+        <button class="btn" type="submit">I'm a startup CEO</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
