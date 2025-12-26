@@ -5,6 +5,8 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/auth");
 const apiRoutes = require("./routes/api");
+const detailsRoutes = require("./routes/details");
+const profileRoutes = require("./routes/profile");
 const path = require("path");
 
 const app = express();
@@ -50,6 +52,15 @@ app.use("/api", apiRoutes);
 
 // Auth routes (EJS views)
 app.use("/", authRoutes);
+// Details / discover routes
+app.use("/", detailsRoutes);
+// Profile/role routes
+app.use("/", profileRoutes);
+
+// Direct discover route (fallback) to ensure discover page is reachable
+app.get('/discover', (req, res) => {
+  res.render('discover');
+});
 
 // Start server
 app.listen(5000, () => {

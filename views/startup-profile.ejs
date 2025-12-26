@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Startup Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#071028 0%,#071733 60%);color:#e6eef8;display:flex;align-items:center;justify-content:center;height:100vh}
+    .card{width:720px;background:rgba(255,255,255,0.02);padding:28px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    input,textarea{width:100%;padding:10px;margin-top:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
+    .btn{margin-top:12px;padding:10px 14px;border-radius:8px;border:none;background:#12b886;color:#042028;cursor:pointer}
+    .muted{color:#9aa6bd}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Startup profile</h2>
+    <div class="muted">Provide your startup details for verification and matching with investors.</div>
+    <form method="POST" action="/profile/startup">
+      <label>Startup Name</label>
+      <input name="name" value="<%= data.name || user.name %>" required />
+      <label>Tagline</label>
+      <input name="tagline" value="<%= data.tagline || '' %>" />
+      <label>Industry</label>
+      <input name="industry" value="<%= data.industry || '' %>" />
+      <label>Stage</label>
+      <input name="stage" value="<%= data.stage || '' %>" />
+      <label>Location</label>
+      <input name="location" value="<%= data.location || '' %>" />
+      <label>Contact</label>
+      <input name="contact" value="<%= data.contact || '' %>" />
+      <button class="btn" type="submit">Save profile</button>
+    </form>
+  </div>
+</body>
+</html>
