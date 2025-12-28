@@ -1,8 +1,10 @@
 const express = require("express");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const cors = require("cors");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/auth");
+const apiRoutes = require("./routes/api");
 const detailsRoutes = require("./routes/details");
 const profileRoutes = require("./routes/profile");
 const path = require("path");
@@ -11,6 +13,12 @@ const app = express();
 
 // Connect MongoDB
 connectDB();
+
+// CORS configuration for Next.js frontend
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true
+}));
 
 // Set EJS as template engine
 app.set("view engine", "ejs");
@@ -39,7 +47,10 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-// Auth routes
+// API routes (JSON responses)
+app.use("/api", apiRoutes);
+
+// Auth routes (EJS views)
 app.use("/", authRoutes);
 // Details / discover routes
 app.use("/", detailsRoutes);
